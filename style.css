@@ -1,0 +1,484 @@
+/* أنماط عامة */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Tahoma", sans-serif;
+    background: #111;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* أنماط الصفحة الرئيسية */
+.intro-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.intro-content {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.intro-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.intro-form input {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.btn {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+
+.start-btn {
+    background: linear-gradient(to bottom, #ffd700, #ff9900);
+    color: #000;
+    width: 100%;
+}
+
+.start-btn:hover {
+    background: linear-gradient(to bottom, #ff9900, #ffd700);
+    transform: scale(1.05);
+}
+
+/* أنماط خلفية اللعبة */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.background img {
+    position: absolute;
+}
+
+.background img.audience {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+}
+
+.background img.seats {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: auto;
+    z-index: 1;
+}
+
+.background img.player {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15%;
+    height: auto;
+    z-index: 2;
+}
+
+/* أنماط واجهة اللعبة */
+.game-container {
+    background: rgba(0, 0, 0, 0.85);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    margin: 2rem auto;
+}
+
+.question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.question-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.question-icon {
+    font-size: 2rem;
+    color: #ffd700;
+    background: rgba(255, 215, 0, 0.2);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.question-header h2 {
+    color: #ffd700;
+    font-size: 1.8rem;
+}
+
+#timer-container {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #222;
+    border-radius: 50%;
+}
+
+#timer-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(#4caf50 0%, #4caf50 100%, #ddd 100%, #ddd 100%);
+    z-index: 1;
+    transition: background 0.3s;
+}
+
+#timer-text {
+    position: relative;
+    z-index: 2;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.question-text {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+    padding: 20px;
+    background: rgba(255, 215, 0, 0.1);
+    border-radius: 10px;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    position: relative;
+}
+
+.quote-icon {
+    color: #ffd700;
+    font-size: 1.2rem;
+    margin: 0 5px;
+}
+
+/* أنماط خيارات الإجابة */
+.options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 2rem;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: right;
+    position: relative;
+    overflow: hidden;
+}
+
+.option:hover {
+    background: linear-gradient(135deg, #2a5298, #1e3c72);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+}
+
+.option:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.option.selected {
+    background: linear-gradient(135deg, #ffd700, #ff9900);
+    color: #000;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+}
+
+.option-icon {
+    background: rgba(255, 255, 255, 0.2);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.option-text {
+    flex: 1;
+    text-align: right;
+    font-size: 1.1rem;
+}
+
+.option-select {
+    margin-right: 10px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    color: #ffd700;
+}
+
+.option:hover .option-select {
+    opacity: 1;
+}
+
+/* أنماط سلم الجوائز */
+.prizes-container {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.prizes-title {
+    font-size: 1.2rem;
+    color: #ffd700;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.prizes {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.prize {
+    padding: 10px 15px;
+    background: #222;
+    border-radius: 5px;
+    color: #fff;
+    text-align: center;
+    transition: all 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.prize.reached {
+    background: linear-gradient(to right, #4caf50, #2e7d32);
+    color: #fff;
+}
+
+.prize.active {
+    background: linear-gradient(to right, #ffd700, #ff9900);
+    color: #000;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.prize-number {
+    font-weight: bold;
+    width: 25px;
+    height: 25px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prize-icon {
+    font-size: 0.9rem;
+    color: #ffd700;
+}
+
+.prize-amount {
+    font-weight: bold;
+    flex: 1;
+    text-align: center;
+}
+
+/* أنماط صفحة النتائج */
+.result-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.result-content {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.result-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #ffd700;
+}
+
+.final-score {
+    margin-bottom: 2rem;
+}
+
+.final-score p {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.score-amount {
+    font-size: 3rem;
+    color: #ffd700;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    background: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.play-again-btn {
+    background: linear-gradient(to bottom, #4caf50, #2e7d32);
+    color: #fff;
+    padding: 15px 30px;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+}
+
+.play-again-btn:hover {
+    background: linear-gradient(to bottom, #2e7d32, #4caf50);
+    transform: scale(1.05);
+}
+
+/* التجاوب مع مختلف أحجام الشاشات */
+@media (max-width: 992px) {
+    .options {
+        grid-template-columns: 1fr;
+    }
+    
+    .question-text {
+        font-size: 1.2rem;
+    }
+    
+    .intro-content h1,
+    .result-content h1 {
+        font-size: 2rem;
+    }
+    
+    .question-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .prizes {
+        max-height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+    
+    .game-container {
+        padding: 15px;
+    }
+    
+    .option {
+        padding: 12px;
+    }
+    
+    .option-icon {
+        width: 25px;
+        height: 25px;
+        font-size: 1rem;
+    }
+    
+    .option-text {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .question-text {
+        font-size: 1.1rem;
+        padding: 15px;
+    }
+    
+    .prizes-container {
+        padding: 10px;
+    }
+    
+    .prize {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
+    
+    .result-content {
+        padding: 2rem;
+    }
+    
+    .score-amount {
+        font-size: 2.5rem;
+    }
+}
